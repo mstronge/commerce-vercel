@@ -18,6 +18,9 @@ interface Props {
 
 const placeholderImg = '/product-img-placeholder.svg'
 
+// @todo: move to common const file
+const PACKAGING_PRODUCT = 'package_upgrade';
+
 const ProductCard: FC<Props> = ({
   product,
   imgProps,
@@ -38,6 +41,7 @@ const ProductCard: FC<Props> = ({
   )
 
   return (
+    product.productType !== PACKAGING_PRODUCT ?
     <Link href={`/product/${product.slug}`}>
       <a className={rootClassName}>
         {variant === 'slim' && (
@@ -125,7 +129,7 @@ const ProductCard: FC<Props> = ({
           </>
         )}
       </a>
-    </Link>
+    </Link> : null
   )
 }
 
