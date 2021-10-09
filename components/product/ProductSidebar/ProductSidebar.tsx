@@ -15,6 +15,9 @@ interface ProductSidebarProps {
   className?: string
 }
 
+// @todo: move to common const file
+const PACKAGING_PRODUCT = 'package_upgrade';
+
 const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
   const addItem = useAddItem()
   const { openSidebar } = useUI()
@@ -54,6 +57,13 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
       <div className="flex flex-row justify-between items-center">
         <Rating value={4} />
         <div className="text-accent-6 pr-1 font-medium text-sm">36 reviews</div>
+      </div>
+      <div>
+        {product.productType === PACKAGING_PRODUCT && (
+          <Button>
+            Packaging Upgrade Available
+          </Button>
+        )}
       </div>
       <div>
         {process.env.COMMERCE_CART_ENABLED && (

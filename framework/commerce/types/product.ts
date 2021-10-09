@@ -39,6 +39,7 @@ export type Product = {
   sku?: string
   slug?: string
   path?: string
+  productType?: string
   images: ProductImage[]
   variants: ProductVariant[]
   price: ProductPrice
