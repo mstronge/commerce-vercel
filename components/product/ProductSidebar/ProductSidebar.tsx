@@ -60,7 +60,13 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
       </div>
       <div>
         {product.productType === PACKAGING_PRODUCT && (
-          <Button>
+          <Button
+            aria-label="Packaging Upgrade Available"
+            type="button"
+            className={s.button}
+            loading={loading}
+            disabled={variant?.availableForSale === false}
+          >
             Packaging Upgrade Available
           </Button>
         )}
